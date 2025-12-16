@@ -198,10 +198,35 @@ const countries = [
 const list = document.getElementById("countryList");
 
 if (list) {
+  const fragment = document.createDocumentFragment();
+
   countries.forEach(country => {
-      const li = document.createElement("li");
-      li.className = "single-item";
-      li.innerHTML = `<h6>${country}</h6>`;
-      list.appendChild(li);
+    const li = document.createElement("li");
+    li.className = "single-item";
+    li.innerHTML = `<h6>${country}</h6>`;
+    fragment.appendChild(li);
   });
+
+  list.appendChild(fragment);
+}
+
+// ====== FOR NICE SELECT ======
+const select = document.getElementById("countrySelect");
+
+if (select) {
+  countries.forEach((country, index) => {
+    const option = document.createElement("option");
+    option.value = country;
+    option.textContent = country;
+
+    if (index === 0) option.selected = true; // default value
+
+    select.appendChild(option);
+  });
+
+  // Rebuild nice-select UI
+  if (window.jQuery && jQuery.fn.niceSelect) {
+    jQuery(select).niceSelect("destroy");
+    jQuery(select).niceSelect();
+  }
 }
