@@ -145,6 +145,8 @@ Version: 1.0
   --primary-color4: #1d6bd5;
   --primary-color4-opc: 27, 32, 114;
   --borders-color: #E8E8E8;
+  --highlight-gold: #de9700;
+  --highlight-gold-opc: 222, 151, 0;
 }
 
 /*================================================
@@ -23290,7 +23292,7 @@ header.style-3.two .main-menu > ul > li.active > a i {
   }
 }
 .home8-banner-section .banner-content-wrapper .banner-title-area h1 {
-  color: var(--title-color);
+  color: var(--highlight-gold);
   font-family: var(--font-poppins);
   font-weight: 700;
   font-size: 58px;
@@ -23322,6 +23324,7 @@ header.style-3.two .main-menu > ul > li.active > a i {
     line-height: 1.3;
   }
 }
+
 .home8-banner-section .banner-content-wrapper .banner-title-area p {
   color: #fff;
   font-family: var(--font-roboto);

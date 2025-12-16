@@ -230,3 +230,31 @@ if (select) {
     jQuery(select).niceSelect();
   }
 }
+
+// ====== TRAVELLING TO (Which Country) DROPDOWN ======
+const countryList = document.getElementById("countryList");
+
+if (countryList) {
+  countryList.addEventListener("click", function (e) {
+    const li = e.target.closest("li");
+    if (!li) return;
+
+    const countryName = li.innerText.trim();
+
+    // find the correct input (Travelling to)
+    const wrapper = countryList.closest(".custom-select-wrap");
+    const input = wrapper.previousElementSibling.querySelector("input");
+
+    // set value
+    input.value = countryName;
+
+    // highlight selection
+    countryList.querySelectorAll("li").forEach(i =>
+      i.classList.remove("selected")
+    );
+    li.classList.add("selected");
+
+    // close dropdown
+    wrapper.classList.remove("active");
+  });
+}
