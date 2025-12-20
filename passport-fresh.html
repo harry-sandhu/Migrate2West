@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fresh Passport | Migrate2West</title>
+
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/daterangepicker.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="visa-agency">
+
+<!-- HEADER (reuse same header) -->
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-section"
+     style="background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(images/About-Us-Page.webp);">
+    <div class="banner-content text-center">
+        <h1>Fresh Passport</h1>
+        <ul class="breadcrumb-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="passport.html">Passport</a></li>
+            <li>Fresh Passport</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ================= ABOUT PASSPORT ================= -->
+<div class="why-choose-visa-section mb-100">
+    <div class="container">
+        <div class="row justify-content-center mb-40">
+            <div class="col-lg-8">
+                <div class="section-title text-center">
+                    <span>Fresh Passport</span>
+                    <h2>Apply for a New Indian Passport</h2>
+                    <p>
+                        Apply for a new Indian Passport with expert guidance,
+                        accurate documentation, and hassle-free processing.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documents -->
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="why-choose-card">
+                    <h4>Documents Required</h4>
+                    <ul style="padding-left:18px;">
+                        <li>Aadhaar Card</li>
+                        <li>Additional documents may be required</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= PAGE 1 : APPLICANT DETAILS ================= -->
+<div class="contact-form mb-100" id="page1">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10">
+                <div class="contact-form-wrap">
+                    <div class="section-title text-center mb-50">
+                        <h2>Applicant Details</h2>
+                        <p>Enter your basic details to continue.</p>
+                    </div>
+
+                    <form id="passportForm">
+                        <div class="row g-4 mb-40">
+
+                            <div class="col-md-6">
+                                <div class="form-inner">
+                                    <label>Full Name</label>
+                                    <input type="text" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-inner">
+                                    <label>Contact Number</label>
+                                    <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+                                    <small>OTP verification will be required</small>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-inner">
+                                    <label>Email ID</label>
+                                    <input type="email" required>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button type="button" class="primary-btn1" onclick="goToFees()">
+                            <span>Submit & Continue</span>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ================= PAGE 2 : FEES & APPOINTMENT ================= -->
+<div class="why-choose-visa-section mb-100" id="page2" style="display:none;">
+    <div class="container">
+
+        <div class="row justify-content-center mb-40">
+            <div class="col-lg-8">
+                <div class="section-title text-center">
+                    <h2>Fees & Appointment</h2>
+                    <p>Select a processing option or consultation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fees -->
+        <div class="row g-4 justify-content-center mb-40">
+            <div class="col-lg-4">
+                <div class="why-choose-card">
+                    <h4>Normal Processing</h4>
+                    <p>Adult: <strong>₹2,500</strong></p>
+                    <p>Child (Below 10): <strong>₹1,500</strong></p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="why-choose-card">
+                    <h4>Tatkal Processing</h4>
+                    <p>Adult: <strong>₹4,500</strong></p>
+                    <p>Child (Below 10): <strong>₹3,500</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Consultation -->
+        <div class="row justify-content-center mb-40">
+            <div class="col-lg-6">
+                <div class="why-choose-card">
+                    <h4>Consultation Option</h4>
+                    <p>Consultation Fee: <strong>₹500</strong></p>
+                    <p>Expert guidance & document verification.</p>
+
+                    <input type="text" id="appointmentDate"
+                           class="form-control"
+                           placeholder="Select Date & Time">
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment -->
+        <div class="text-center">
+            <a href="#" class="primary-btn1 five">
+                <span>Proceed to Payment</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- JS -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script>
+function goToFees() {
+    document.getElementById('page1').style.display = 'none';
+    document.getElementById('page2').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+$('#appointmentDate').daterangepicker({
+    singleDatePicker: true,
+    timePicker: true,
+    locale: { format: 'DD MMM YYYY hh:mm A' }
+});
+</script>
+
+</body>
+</html>
